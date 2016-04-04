@@ -49,10 +49,15 @@ table {
   border-spacing: 0;
 }
 
-/* -------------------------- TITLE -------------------------- */
+/* -------------------------- TITLE/BACKGROUND -------------------------- */
 
 h3 {
-  font-family: Raleway, Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   font-size: 30px;
+  font-weight: bold;
   text-align: center;
+}
+
+body {
+  background: url('sayagata-400px.png');
 }
