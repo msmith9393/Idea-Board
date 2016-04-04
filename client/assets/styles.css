@@ -52,7 +52,8 @@ table {
 /* -------------------------- TITLE/BACKGROUND -------------------------- */
 
 h3 {
-  font-family: 'Raleway', Arial, sans-serif;
+  /*font-family: 'Raleway', Arial, sans-serif;*/
+  margin: 20px;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -60,4 +61,79 @@ h3 {
 
 body {
   background: url('sayagata-400px.png');
+  font-family: 'Raleway', Arial, sans-serif;
 }
+
+/* -------------------------- NEW IDEA BUTTON -------------------------- */
+
+.new-button, .add-idea-button {
+  margin: 10px auto;
+  border: 1px solid black;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.add-idea-button {
+  background: url('sayagata-400px.png');
+}
+
+.new-button:hover, .add-idea-button:hover {
+  background: rgba(51, 255, 255, .5);
+}
+
+/* -------------------------- NEW IDEA FORM -------------------------- */
+
+.form {
+  border: 1px solid black;
+  width: 40%;
+  padding: 25px 10px;
+  position: relative;
+  background: rgba(60, 60, 242, .25);
+  margin: 0 auto;
+}
+
+.form label {
+  display: block;
+}
+
+.form input[type='text'] {
+  width: 95%;
+  padding: 5px;
+  margin: 5px 0 10px 0;
+}
+
+.form .cancel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.remove {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
