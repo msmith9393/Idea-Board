@@ -3,10 +3,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = 3000;
 
-app.set('views', __dirname + '/views');
-// app.set('view engine', 'jsx');
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client'));
 
 app.get('/', function(req, res) {

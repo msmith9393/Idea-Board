@@ -8,7 +8,8 @@ class NewIdeaForm extends React.Component {
     var idea = {
       title: $('.title')[0].value,
       description: $('.description')[0].value,
-      creator: $('.creator')[0].value
+      creator: $('.creator')[0].value,
+      starred: false
     }
     this.props.addIdea(idea);
   }

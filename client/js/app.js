@@ -4,7 +4,8 @@ class App extends React.Component {
 
     this.state = {
       displayAddForm: false,
-      ideas: []
+      ideas: [],
+      starredIdeas: []
     };
   }
 
@@ -37,7 +38,8 @@ class App extends React.Component {
   render() {
     const {
       displayAddForm,
-      ideas
+      ideas,
+      starredIdeas
     } = this.state;
     return (
       <div>
