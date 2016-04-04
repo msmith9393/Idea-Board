@@ -22,19 +22,22 @@ class App extends React.Component {
   // };
 
   newIdea() {
-    this.setState({displayAddForm: true})
+    this.setState({displayAddForm: true});
     // var myElement = <NewIdeaForm />
     // ReactDOM.render(myElement, document.getElementById('new-form'))
   }
   
+  exit() {
+    this.setState({displayAddForm: false});
+  }
+
   render() {
     return (
       <div>
         <h3>IDEA BOARD</h3>
         <button onClick={() => this.getUnsplashPhoto()}>Show Photo</button>
         <div className='new-button' onClick={() => this.newIdea()}>new idea</div>
-        { this.state.displayAddForm ? <NewIdeaForm /> : null}
-        <div id='new-form'></div>
+        { this.state.displayAddForm ? <NewIdeaForm exit={this.exit.bind(this)} /> : null}
       </div>
     )
   }
