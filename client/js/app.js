@@ -3,8 +3,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      displayAddForm: false
-      // currentImageIndex: 0
+      displayAddForm: false,
+      ideas: []
     };
   }
 
@@ -21,23 +21,33 @@ class App extends React.Component {
   //   })
   // };
 
-  newIdea() {
+  show() {
     this.setState({displayAddForm: true});
-    // var myElement = <NewIdeaForm />
-    // ReactDOM.render(myElement, document.getElementById('new-form'))
   }
   
-  exit() {
+  hide() {
     this.setState({displayAddForm: false});
   }
 
+  addIdea(idea) {
+    var newIdeas = this.state.ideas.concat([idea]);
+    this.setState({ideas: newIdeas, displayAddForm: false})
+  }
+
   render() {
+    const {
+      displayAddForm,
+      ideas
+    } = this.state;
     return (
       <div>
         <h3>IDEA BOARD</h3>
         <button onClick={() => this.getUnsplashPhoto()}>Show Photo</button>
-        <div className='new-button' onClick={() => this.newIdea()}>new idea</div>
-        { this.state.displayAddForm ? <NewIdeaForm exit={this.exit.bind(this)} /> : null}
+        <div className='new-button' onClick={() => this.show()}>new idea</div>
+        {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
+
+        <ListOfIdeas ideas={ideas} />
+
       </div>
     )
   }
