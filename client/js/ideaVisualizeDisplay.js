@@ -21,8 +21,9 @@ class IdeaVisualizeDisplay extends React.Component {
     });
 
 
-
-    d3it(allIdeas);
+    if (allIdeas.length) {
+      d3it(allIdeas);
+    }
   }
 
   render() {

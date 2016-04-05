@@ -6,6 +6,7 @@ class App extends React.Component {
       displayAddForm: false,
       displayInspirationForm: false,
       showVisualization: false,
+      showIdeas: true,
       ideas: [],
       starredIdeas: [],
       inspiringPhoto: null
@@ -40,12 +41,11 @@ class App extends React.Component {
   }
 
   getInspiration() {
-    this.hide();
-    this.setState({displayInspirationForm: true})
+    this.setState({showIdeas: false, displayAddForm: false, showVisualization: false, displayInspirationForm: true})
   }
 
   getVisualization() {
-    this.setState({displayAddForm: false, displayInspirationForm: false, showVisualization: true})
+    this.setState({showIdeas: false, displayAddForm: false, displayInspirationForm: false, showVisualization: true})
   }
 
   handleStar() {
@@ -64,7 +64,7 @@ class App extends React.Component {
   }
 
   goBack() {
-    this.setState({displayInspirationForm: false, showVisualization: false})
+    this.setState({displayInspirationForm: false, showVisualization: false, showIdeas: true})
   }
 
   deleteIdea(index) {
@@ -88,13 +88,14 @@ class App extends React.Component {
       ideas,
       starredIdeas,
       showVisualization,
+      showIdeas,
       inspiringPhoto
     } = this.state;
     return (
       <div className='header'>
         <h3>IDEA BOARD</h3>
         <img className='divider' src='assets/squiggly.png' />
-        {displayInspirationForm ? null :
+        {displayInspirationForm || showVisualization ? null :
           <div className='btns'>
             <div className='inspiration-btn' onClick={() => this.getInspiration()}>inspiration?</div>
             <div className='new-button' onClick={() => this.show()}>new idea</div>
@@ -107,13 +108,14 @@ class App extends React.Component {
           <InspirationForm
             inspiringPhoto={inspiringPhoto}
             getUnsplashPhoto={this.getUnsplashPhoto.bind(this)}
-            back={this.goBack.bind(this)} /> :
+            back={this.goBack.bind(this)} /> : null }
+        {showIdeas ?  
           <ListOfIdeas
             deleteIdea={this.deleteIdea.bind(this)}
             deleteStarIdea={this.deleteStarIdea.bind(this)}
             handleStar={this.handleStar.bind(this)}
             ideas={ideas}
-            starredIdeas={starredIdeas} />
+            starredIdeas={starredIdeas} /> : null
         }
       </div>
     )

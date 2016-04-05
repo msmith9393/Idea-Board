@@ -79,29 +79,18 @@ body {
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
-  width: 26%;
+  width: 20%;
 }
 
 .back-to-ideas-btn {
   display: block;
   margin: 10px auto;
 }
-.new-button {
-  float: right;
-}
-
-.inspiration-btn {
-  float: right;
-}
-
-.bubble-button {
-  float: right;
-}
 
 .btns {
   margin: 20px auto;
-  width: 70%;
   overflow: auto;
+  padding-left: 20%;
 }
 .back-to-ideas-btn:hover, .new-button:hover, .inspiration-btn:hover, .add-idea-button:hover, .bubble-button:hover {
   background: rgba(51, 255, 255, .5);

@@ -18,7 +18,6 @@ function d3it(data) {
   //   obj.index = index+1;
   //   return obj;
   // });
-
   var json = JSON.stringify(data);
   
   // D3 Bubble Chart
