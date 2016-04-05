@@ -19,9 +19,9 @@ class App extends React.Component {
       var num = photos.length - 1;
       var randNum = Math.floor(Math.random() * num);
       var randPhoto = photos[randNum].urls.regular;
-      console.log(randPhoto)
-      console.log('DATA IN getUnsplashPhoto', photos);
-      this.setState({inspiringPhoto})
+      console.log('CATID', catId)
+      console.log('RAND PHOTO', randPhoto)
+      // this.setState({inspiringPhoto: })
     })
   };
 
@@ -80,7 +80,7 @@ class App extends React.Component {
           </div>
         }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
-        {displayInspirationForm ? <InspirationForm back={this.goBack.bind(this)} /> :
+        {displayInspirationForm ? <InspirationForm getUnsplashPhoto={this.getUnsplashPhoto.bind(this)} back={this.goBack.bind(this)} /> :
           <ListOfIdeas handleStar={this.handleStar.bind(this)} ideas={ideas} starredIdeas={starredIdeas} />
         }
       </div>

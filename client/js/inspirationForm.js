@@ -7,6 +7,11 @@ class InspirationForm extends React.Component {
     this.props.back();
   }
 
+  changeValue(e) {
+    var categoryId = e.target.value;
+    this.props.getUnsplashPhoto(categoryId);
+  }
+
   render() {
     const {
       back
@@ -15,9 +20,7 @@ class InspirationForm extends React.Component {
       <form className='insp-form'>
         <div className='back-to-ideas-btn' onClick={() => this.back()}>back to ideas</div>
         <label>Choose a Category: 
-          <select
-            value={category}>
-            onChange{e => console.log(e.target.value)}
+          <select onChange={e => this.changeValue(e)}>
             <option></option>
             <option value={2}>Buildings</option>
             <option value={3}>Food & Drinks</option>
