@@ -35,11 +35,26 @@ class App extends React.Component {
     this.setState({ideas: newIdeas, displayAddForm: false})
   }
 
+  handleStar() {
+    console.log('handleStar');
+    var allIdeas = this.state.ideas.concat(this.state.starredIdeas);
+    var newIdeas = [];
+    var newStarredIdeas = [];
+    allIdeas.forEach(function(idea) {
+      if (idea.starred) {
+        newStarredIdeas.push(idea);
+      } else {
+        newIdeas.push(idea);
+      }
+    });
+    this.setState({ideas: newIdeas, starredIdeas: newStarredIdeas})
+  }
+
   render() {
     const {
       displayAddForm,
       ideas,
-      starredIdeas
+      starredIdeas,
     } = this.state;
     return (
       <div>
@@ -48,7 +63,7 @@ class App extends React.Component {
         <div className='new-button' onClick={() => this.show()}>new idea</div>
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
 
-        <ListOfIdeas ideas={ideas} />
+        <ListOfIdeas handleStar={this.handleStar.bind(this)} ideas={ideas} starredIdeas={starredIdeas} />
 
       </div>
     )
