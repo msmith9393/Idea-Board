@@ -62,12 +62,18 @@ class App extends React.Component {
     this.setState({displayInspirationForm: false})
   }
 
-  deleteIdea(idea) {
-    console.log(idea);
+  deleteIdea(index) {
+    console.log(index);
+    var oldIdeas = this.state.ideas;
+    oldIdeas.splice(index, 1);
+    this.setState({ideas: oldIdeas});
   }
 
-  deleteStarIdea(idea) {
-    console.log(idea);
+  deleteStarIdea(index) {
+    console.log(index);
+    var oldIdeas = this.state.starredIdeas
+    oldIdeas.splice(index, 1);
+    this.setState({starredIdeas: oldIdeas});
   }
 
   render() {
