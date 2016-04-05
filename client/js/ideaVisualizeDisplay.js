@@ -12,7 +12,17 @@ class IdeaVisualizeDisplay extends React.Component {
   }
 
   showIdeas() {
-    d3it();
+    var starredIdeas = this.props.starredIdeas
+    var ideas = this.props.ideas
+
+    var allIdeas = ideas.concat(starredIdeas).map(function(obj, index) {
+      obj.index = index+1;
+      return obj;
+    });
+
+
+
+    d3it(allIdeas);
   }
 
   render() {

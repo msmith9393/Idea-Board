@@ -1,25 +1,25 @@
-function d3it() {
+function d3it(data) {
 
-  var starredIdeas = [
-    {title: 'War', description: 'build a war app', creator: 'allison', starred: true},
-    {title: 'Coding', description: 'build a coding app', creator: 'megan', starred: true},
-    {title: 'Weather', description: 'build a weather app', creator: 'megan', starred: true},
-    {title: 'Cooking', description: 'build a cooking app', creator: 'allison', starred: true}
-  ];
+  // var starredIdeas = [
+  //   {title: 'War', description: 'build a war app', creator: 'allison', starred: true},
+  //   {title: 'Coding', description: 'build a coding app', creator: 'megan', starred: true},
+  //   {title: 'Weather', description: 'build a weather app', creator: 'megan', starred: true},
+  //   {title: 'Cooking', description: 'build a cooking app', creator: 'allison', starred: true}
+  // ];
 
-  var ideas = [
-    {title: 'Vegetable', description: 'build a vegetable app', creator: 'ashley', starred: false},
-    {title: 'Dessert ', description: 'build a dessert app', creator: 'kyle', starred: false},
-    {title: 'Fruit', description: 'build a fruit app', creator: 'ashley', starred: false},
-    {title: 'Garten', description: 'build a garten app', creator: 'kyle', starred: false}
-  ];
+  // var ideas = [
+  //   {title: 'Vegetable', description: 'build a vegetable app', creator: 'ashley', starred: false},
+  //   {title: 'Dessert ', description: 'build a dessert app', creator: 'kyle', starred: false},
+  //   {title: 'Fruit', description: 'build a fruit app', creator: 'ashley', starred: false},
+  //   {title: 'Garten', description: 'build a garten app', creator: 'kyle', starred: false}
+  // ];
 
-  var allIdeas = ideas.concat(starredIdeas).map(function(obj, index) {
-    obj.index = index+1;
-    return obj;
-  });
+  // var allIdeas = ideas.concat(starredIdeas).map(function(obj, index) {
+  //   obj.index = index+1;
+  //   return obj;
+  // });
 
-  var json = JSON.stringify(allIdeas);
+  var json = JSON.stringify(data);
   
   // D3 Bubble Chart
   var diameter = 500;
@@ -39,7 +39,7 @@ function d3it() {
     }).padding(30);
   
   // generate data with calculated layout values
-  var nodes = bubble.nodes(processData(allIdeas))
+  var nodes = bubble.nodes(processData(data))
     .filter(function(d) { return !d.children; }); // filter out the outer bubble
  
   var bubbles = svg.selectAll('circle')
@@ -80,12 +80,12 @@ function d3it() {
     
 
   bubbles.on('mouseover', function(bubble) {
-    d3.selectAll('.' + bubble.othername).transition('linear').duration(1000)
+    d3.selectAll('.' + bubble.othername).transition('linear').duration(500)
       .attr('r', function(d) { return 1.25 * d.r; })
   });
 
   bubbles.on('mouseleave', function(bubble) {
-    d3.selectAll('.' + bubble.othername).transition('linear').duration(1000)
+    d3.selectAll('.' + bubble.othername).transition('linear').duration(500)
       .attr('r', function(d) { return d.r; })
   });
 

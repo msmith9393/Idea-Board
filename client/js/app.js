@@ -101,7 +101,7 @@ class App extends React.Component {
             <div className='bubble-button' onClick={() => this.getVisualization()}>visualize</div>
           </div>
         }
-        {showVisualization ? <IdeaVisualizeDisplay back={this.goBack.bind(this)} /> : null }
+        {showVisualization ? <IdeaVisualizeDisplay ideas={ideas} starredIdeas={starredIdeas} back={this.goBack.bind(this)} /> : null }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
         {displayInspirationForm ?
           <InspirationForm
