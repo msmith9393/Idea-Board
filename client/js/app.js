@@ -59,6 +59,7 @@ class App extends React.Component {
     return (
       <div>
         <h3>IDEA BOARD</h3>
+        <hr />
         <button onClick={() => this.getUnsplashPhoto()}>Show Photo</button>
         <div className='new-button' onClick={() => this.show()}>new idea</div>
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}

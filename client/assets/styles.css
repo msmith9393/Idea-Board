@@ -53,7 +53,7 @@ table {
 
 h3 {
   /*font-family: 'Raleway', Arial, sans-serif;*/
-  margin: 20px;
+  margin: 30px;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -118,10 +118,10 @@ body {
 /* -------------------------- IDEA COMPONENT -------------------------- */
 
 .idea {
+  width: 80%;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 5px auto;
-  width: 50%;
+  margin: 20px auto;
   padding: 10px;
   background: rgba(20, 133, 204, 0.8);
   color: #fff;
@@ -161,8 +161,25 @@ body {
   font-size: 24px;
 }
 
-#container h4 {
+#container {
+  width: 80%;
+  margin: 20px auto;
   text-align: center;
+}
+
+#stars, #regular {
+ width: 40%;
+}
+
+#regular {
+  float: left;
+}
+
+#stars  {
+  float: right;
+}
+
+.list-title {
   font-weight: bold;
 }
 
