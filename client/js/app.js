@@ -62,6 +62,14 @@ class App extends React.Component {
     this.setState({displayInspirationForm: false})
   }
 
+  deleteIdea(idea) {
+    console.log(idea);
+  }
+
+  deleteStarIdea(idea) {
+    console.log(idea);
+  }
+
   render() {
     const {
       displayAddForm,
@@ -82,8 +90,16 @@ class App extends React.Component {
         }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
         {displayInspirationForm ?
-          <InspirationForm inspiringPhoto={inspiringPhoto} getUnsplashPhoto={this.getUnsplashPhoto.bind(this)} back={this.goBack.bind(this)} />:
-          <ListOfIdeas handleStar={this.handleStar.bind(this)} ideas={ideas} starredIdeas={starredIdeas} />
+          <InspirationForm
+            inspiringPhoto={inspiringPhoto}
+            getUnsplashPhoto={this.getUnsplashPhoto.bind(this)}
+            back={this.goBack.bind(this)} /> :
+          <ListOfIdeas
+            deleteIdea={this.deleteIdea.bind(this)}
+            deleteStarIdea={this.deleteStarIdea.bind(this)}
+            handleStar={this.handleStar.bind(this)}
+            ideas={ideas}
+            starredIdeas={starredIdeas} />
         }
       </div>
     )

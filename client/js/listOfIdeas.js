@@ -7,7 +7,9 @@ class ListOfIdeas extends React.Component {
     const {
       ideas,
       starredIdeas,
-      handleStar
+      handleStar,
+      deleteIdea,
+      deleteStarIdea
     } = this.props;
     return (
       <div id='container'>
@@ -18,6 +20,7 @@ class ListOfIdeas extends React.Component {
                 handleStar={handleStar}
                 key={index}
                 idea={idea}
+                deleteIdea={deleteIdea.bind(this, index)}
               />
             )}
           </div>
@@ -25,6 +28,7 @@ class ListOfIdeas extends React.Component {
           {starredIdeas.length ? <h4 className='list-title'>&#9734; STARRED IDEAS</h4> : null}
             {starredIdeas.map((idea, index) =>
               <Idea
+                deleteStarIdea={deleteStarIdea.bind(this, index)}
                 handleStar={handleStar}
                 key={index}
                 idea={idea}

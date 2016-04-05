@@ -9,10 +9,17 @@ class Idea extends React.Component {
     this.props.handleStar();
   }
 
+  delete(idea) {
+    if (idea.starred) {
+      this.props.deleteStarIdea();
+    } else {
+      this.props.deleteIdea();
+    }
+  }
+
   render() {
     const {
-      idea,
-      key
+      idea
     } = this.props;
     return (
       <div className='idea'>
@@ -28,6 +35,7 @@ class Idea extends React.Component {
         <h4>Title: {idea.title}</h4>
         <p>Description: {idea.description}</p>
         <p>Created By: {idea.creator}</p>
+        <p onClick={() => this.delete(idea) } className='delete'>delete</p>
       </div>
     )
   }
