@@ -23,7 +23,6 @@ function d3it(data) {
   // D3 Bubble Chart
   var diameter = 500;
   var color = d3.scale.category20b();
-  console.log('COLOR', color)
 
   var svg = d3.select('#graph').append('svg')
     .attr('width', diameter)

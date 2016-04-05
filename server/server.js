@@ -1,6 +1,4 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var session = require('express-session')
 var app = express();
 var port = 3000;
 
