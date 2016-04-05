@@ -236,6 +236,11 @@ img.image-display {
   cursor: pointer;
 }
 
+#graph svg{
+  display: block;
+  margin: 0 auto;
+  padding: 30px;
+}
 
 
 

@@ -5,6 +5,7 @@ class App extends React.Component {
     this.state = {
       displayAddForm: false,
       displayInspirationForm: false,
+      showVisualization: false,
       ideas: [],
       starredIdeas: [],
       inspiringPhoto: null
@@ -43,6 +44,10 @@ class App extends React.Component {
     this.setState({displayInspirationForm: true})
   }
 
+  getVisualization() {
+    this.setState({displayAddForm: false, displayInspirationForm: false, showVisualization: true})
+  }
+
   handleStar() {
     console.log('handleStar');
     var allIdeas = this.state.ideas.concat(this.state.starredIdeas);
@@ -59,7 +64,7 @@ class App extends React.Component {
   }
 
   goBack() {
-    this.setState({displayInspirationForm: false})
+    this.setState({displayInspirationForm: false, showVisualization: false})
   }
 
   deleteIdea(index) {
@@ -82,6 +87,7 @@ class App extends React.Component {
       displayInspirationForm,
       ideas,
       starredIdeas,
+      showVisualization,
       inspiringPhoto
     } = this.state;
     return (
@@ -92,9 +98,10 @@ class App extends React.Component {
           <div className='btns'>
             <div className='inspiration-btn' onClick={() => this.getInspiration()}>inspiration?</div>
             <div className='new-button' onClick={() => this.show()}>new idea</div>
-            <div className='bubble-button' onClick={() => this.show()}>visualize</div>
+            <div className='bubble-button' onClick={() => this.getVisualization()}>visualize</div>
           </div>
         }
+        {showVisualization ? <IdeaVisualizeDisplay back={this.goBack.bind(this)} /> : null }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
         {displayInspirationForm ?
           <InspirationForm

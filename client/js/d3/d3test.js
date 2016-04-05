@@ -1,4 +1,4 @@
-(function() {
+function d3it() {
 
   var starredIdeas = [
     {title: 'War', description: 'build a war app', creator: 'allison', starred: true},
@@ -22,7 +22,7 @@
   var json = JSON.stringify(allIdeas);
   
   // D3 Bubble Chart
-  var diameter = 600;
+  var diameter = 500;
   var color = d3.scale.category20b();
   console.log('COLOR', color)
 
@@ -31,7 +31,7 @@
     .attr('height', diameter);
 
   var bubble = d3.layout.pack()
-    .size([diameter*0.8, diameter*0.8])
+    .size([diameter, diameter])
     .value(function(d) {
       return d.size;
     }).sort(function(a, b) {
@@ -89,4 +89,6 @@
       .attr('r', function(d) { return d.r; })
   });
 
-})();
+};
+
+window.d3it = d3it;
