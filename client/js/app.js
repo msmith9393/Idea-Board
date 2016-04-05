@@ -85,9 +85,9 @@ class App extends React.Component {
       inspiringPhoto
     } = this.state;
     return (
-      <div>
+      <div className='header'>
         <h3>IDEA BOARD</h3>
-        <hr />
+        <img className='divider' src='assets/squiggly.png' />
         {displayInspirationForm ? null :
           <div className='btns'>
             <div className='inspiration-btn' onClick={() => this.getInspiration()}>inspiration?</div>

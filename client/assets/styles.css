@@ -53,7 +53,7 @@ table {
 
 h3 {
   /*font-family: 'Raleway', Arial, sans-serif;*/
-  margin: 30px;
+  margin-top: 20px;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -64,6 +64,10 @@ body {
   font-family: 'Raleway', Arial, sans-serif;
 }
 
+.divider {
+  display: block;
+  margin: 0 auto;
+}
 /* -------------------------- NEW IDEA BUTTON -------------------------- */
 
 .new-button, .inspiration-btn, .add-idea-button, .back-to-ideas-btn {
@@ -102,7 +106,7 @@ body {
 /* -------------------------- NEW IDEA FORM -------------------------- */
 
 .form {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   width: 40%;
   padding: 25px 10px;
   position: relative;
