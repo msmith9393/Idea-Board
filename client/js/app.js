@@ -92,6 +92,7 @@ class App extends React.Component {
           <div className='btns'>
             <div className='inspiration-btn' onClick={() => this.getInspiration()}>inspiration?</div>
             <div className='new-button' onClick={() => this.show()}>new idea</div>
+            <div className='bubble-button' onClick={() => this.show()}>visualize</div>
           </div>
         }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}

@@ -22,7 +22,7 @@
   var json = JSON.stringify(allIdeas);
   
   // D3 Bubble Chart
-  var diameter = 400;
+  var diameter = 600;
   var color = d3.scale.category20b();
   console.log('COLOR', color)
 
@@ -31,12 +31,12 @@
     .attr('height', diameter);
 
   var bubble = d3.layout.pack()
-    .size([diameter, diameter])
+    .size([diameter*0.8, diameter*0.8])
     .value(function(d) {
       return d.size;
     }).sort(function(a, b) {
       return -(a.value - b.value)
-    }).padding(10);
+    }).padding(30);
   
   // generate data with calculated layout values
   var nodes = bubble.nodes(processData(allIdeas))

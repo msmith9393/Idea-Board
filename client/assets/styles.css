@@ -70,7 +70,7 @@ body {
 }
 /* -------------------------- NEW IDEA BUTTON -------------------------- */
 
-.new-button, .inspiration-btn, .add-idea-button, .back-to-ideas-btn {
+.new-button, .inspiration-btn, .add-idea-button, .back-to-ideas-btn, .bubble-button {
   display: inline-block;
   padding: 10px;
   margin: 10px;
@@ -79,7 +79,7 @@ body {
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
-  width: 40%;
+  width: 26%;
 }
 
 .back-to-ideas-btn {
@@ -87,19 +87,23 @@ body {
   margin: 10px auto;
 }
 .new-button {
-  float: left;
+  float: right;
 }
 
 .inspiration-btn {
   float: right;
 }
 
+.bubble-button {
+  float: right;
+}
+
 .btns {
   margin: 20px auto;
-  width: 50%;
+  width: 70%;
   overflow: auto;
 }
-.back-to-ideas-btn:hover, .new-button:hover, .inspiration-btn:hover, .add-idea-button:hover {
+.back-to-ideas-btn:hover, .new-button:hover, .inspiration-btn:hover, .add-idea-button:hover, .bubble-button:hover {
   background: rgba(51, 255, 255, .5);
 }
 
