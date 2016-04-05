@@ -216,6 +216,14 @@ body {
   margin: 10px;
 }
 
+img.image-display {
+  width: 50%;
+  display: block;
+  border: 5px solid white;
+  /*text-align: center;*/
+  margin: 0 auto;
+}
+
 
 
 
