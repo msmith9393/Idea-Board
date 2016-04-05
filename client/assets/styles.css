@@ -66,17 +66,36 @@ body {
 
 /* -------------------------- NEW IDEA BUTTON -------------------------- */
 
-.new-button, .add-idea-button {
-  margin: 10px auto;
+.new-button, .inspiration-btn, .add-idea-button, .back-to-ideas-btn {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid black;
   width: 100px;
   text-align: center;
   border-radius: 5px;
-  padding: 5px;
   cursor: pointer;
+  width: 40%;
 }
 
-.new-button:hover, .add-idea-button:hover {
+.back-to-ideas-btn {
+  display: block;
+  margin: 10px auto;
+}
+.new-button {
+  float: left;
+}
+
+.inspiration-btn {
+  float: right;
+}
+
+.btns {
+  margin: 20px auto;
+  width: 50%;
+  overflow: auto;
+}
+.back-to-ideas-btn:hover, .new-button:hover, .inspiration-btn:hover, .add-idea-button:hover {
   background: rgba(51, 255, 255, .5);
 }
 
@@ -126,6 +145,7 @@ body {
   background: rgba(20, 133, 204, 0.8);
   color: #fff;
   position: relative;
+  text-align: left;
 }
 
 .idea h4 {
@@ -183,9 +203,18 @@ body {
   font-weight: bold;
 }
 
+/* -------------------------- INSPIRATION FORM -------------------------- */
 
+.insp-form {
+  padding: 20px;
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
 
-
+.insp-form select {
+  margin: 10px;
+}
 
 
 

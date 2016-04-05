@@ -4,23 +4,26 @@ class App extends React.Component {
 
     this.state = {
       displayAddForm: false,
+      displayInspirationForm: false,
       ideas: [],
-      starredIdeas: []
+      starredIdeas: [],
+      inspiringPhoto: null
     };
   }
 
-  // getUnsplashPhoto() {
-  //   var options = {
-  //     category_id: 7,
-  //   };
-  //   searchUnsplash(options, (photos) => {
-  //     var num = photos.length - 1;
-  //     var randNum = Math.floor(Math.random() * num);
-  //     var randPhoto = photos[randNum].urls.regular;
-  //     console.log(randPhoto)
-  //     console.log('DATA IN getUnsplashPhoto', photos);
-  //   })
-  // };
+  getUnsplashPhoto(catId) {
+    var options = {
+      category_id: catId,
+    };
+    searchUnsplash(options, (photos) => {
+      var num = photos.length - 1;
+      var randNum = Math.floor(Math.random() * num);
+      var randPhoto = photos[randNum].urls.regular;
+      console.log(randPhoto)
+      console.log('DATA IN getUnsplashPhoto', photos);
+      this.setState({inspiringPhoto})
+    })
+  };
 
   show() {
     this.setState({displayAddForm: true});
@@ -33,6 +36,11 @@ class App extends React.Component {
   addIdea(idea) {
     var newIdeas = this.state.ideas.concat([idea]);
     this.setState({ideas: newIdeas, displayAddForm: false})
+  }
+
+  getInspiration() {
+    this.hide();
+    this.setState({displayInspirationForm: true})
   }
 
   handleStar() {
@@ -50,9 +58,14 @@ class App extends React.Component {
     this.setState({ideas: newIdeas, starredIdeas: newStarredIdeas})
   }
 
+  goBack() {
+    this.setState({displayInspirationForm: false})
+  }
+
   render() {
     const {
       displayAddForm,
+      displayInspirationForm,
       ideas,
       starredIdeas,
     } = this.state;
@@ -60,12 +73,16 @@ class App extends React.Component {
       <div>
         <h3>IDEA BOARD</h3>
         <hr />
-        <button onClick={() => this.getUnsplashPhoto()}>Show Photo</button>
-        <div className='new-button' onClick={() => this.show()}>new idea</div>
+        {displayInspirationForm ? null :
+          <div className='btns'>
+            <div className='inspiration-btn' onClick={() => this.getInspiration()}>inspiration?</div>
+            <div className='new-button' onClick={() => this.show()}>new idea</div>
+          </div>
+        }
         {displayAddForm ? <NewIdeaForm exit={this.hide.bind(this)} addIdea={this.addIdea.bind(this)} /> : null}
-
-        <ListOfIdeas handleStar={this.handleStar.bind(this)} ideas={ideas} starredIdeas={starredIdeas} />
-
+        {displayInspirationForm ? <InspirationForm back={this.goBack.bind(this)} /> :
+          <ListOfIdeas handleStar={this.handleStar.bind(this)} ideas={ideas} starredIdeas={starredIdeas} />
+        }
       </div>
     )
   }
