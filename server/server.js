@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var port = 3000;
+//MYMY
 //once again another test
 // app.set('trust proxy', 1)
 // app.use(session({
